@@ -24,8 +24,8 @@
           docker load -i ${value}
           docker push ${image.imageName}:${image.imageTag}-${system}
         '') (allImages systems image));
-  in {
-    lib =
+  in rec {
+    lib = {
       forAllSystems (
         pkgs: {
           inherit allImages;
@@ -44,5 +44,13 @@
         }
       )
       defaultSystems;
+
+      allImages (
+        pkgs: {
+          inherit allImages;
+          allImages systems ? defaultSystems app
+        }
+      );
+    };
   };
 }
