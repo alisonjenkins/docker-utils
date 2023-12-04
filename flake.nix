@@ -45,13 +45,16 @@
       )
       defaultSystems;
 
-      allImages = systems: app: (
-        pkgs: {
-          inherit allImages;
+      allImages = systems: apps: allImages;
 
-          allImages systems app
-        }
-      );
+      # allImages = systems: app: (
+      #   pkgs: {
+      #     inherit allImages;
+      #     inherit systems;
+      #
+      #     allImages systems app;
+      #   }
+      # );
     };
   };
 }
