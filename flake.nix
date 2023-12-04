@@ -26,7 +26,7 @@
         '') (allImages systems image));
   in rec {
     lib = {
-      forAllSystems (
+      forAllSystems = (
         pkgs: {
           inherit allImages;
           pushAll = {
@@ -45,7 +45,7 @@
       )
       defaultSystems;
 
-      allImages (
+      allImages = (
         pkgs: {
           inherit allImages;
           allImages systems ? defaultSystems app
