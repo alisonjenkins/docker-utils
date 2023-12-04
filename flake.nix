@@ -45,10 +45,11 @@
       )
       defaultSystems;
 
-      allImages = (
+      allImages = systems: app: (
         pkgs: {
           inherit allImages;
-          allImages systems ? defaultSystems app
+
+          allImages systems app
         }
       );
     };
